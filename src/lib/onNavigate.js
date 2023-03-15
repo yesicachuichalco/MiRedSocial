@@ -14,4 +14,7 @@ export const onNavigate = (pathName) => {
   if (pathName === '/registro') {
     document.getElementById('botonInicioGoogle').addEventListener('click', () => onNavigate('/timeline'));
   }
+  if (pathName === '/timeline') {
+    document.getElementById('nuevaPublicacion').addEventListener('click', () => onNavigate('/crear-publicacion'));
+  }
 };
