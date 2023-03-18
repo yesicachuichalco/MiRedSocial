@@ -57,6 +57,7 @@ body {
   color: white;
   border: 0px;
   height: 25px;
+  pointer-events: none;
 }
 
 .cajaInicio>input{
