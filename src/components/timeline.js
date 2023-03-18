@@ -10,17 +10,9 @@ export const timeline = () => {
       </section>
       <img class="lateral" src="./img/imgPerfil.png" alt="imagen perfil">
     </header>
-    <main class="mainPublicacion">
+    <main class="mainPublicacion" id="miPublicacion">
       <button class="botonPublicacion" id="nuevaPublicacion">NUEVA PUBLICACION</button>
-      <article class="miPublicacion">
-        <p>A Karencita le gusta el gato con botas, por Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis omnis ut quae aut debitis </p>
-      </article>
-      <article class="miPublicacion">
-        <p>A Karencita le gusta el gato con botas, por Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis omnis ut quae aut debitis assumenda accusamus autem officiis officia dolorem ipsa, rem adipisci iusto? Consequatur fuga obcaecati quasi excepturi temporibus!</p>
-      </article>
-      <article class="miPublicacion">
-        <p>A Karencita le gusta el gato con botas, por Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-      </article>      
+   
     </main>
   </div>
   `;
