@@ -4,32 +4,20 @@ import Firebase from "../firebaseConfig.js";
 const { 
   auth, createUserWithEmailAndPassword, set, ref, database,
 } = Firebase;
-export const signUp = () => {
-  // Initialize Firebase
-
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in
-      const user = userCredential.user;
-      // ...
-      set(ref(database, `users/${user.uid}`), {
-        email,
-        password,
-      })
-        .then(() => {
-          // Data saved successfully!
-          alert('Usuario en la base de datos!');
-        })
-        .catch((error) => {
-          // The write failed...
-          alert(error);
-        });
-      alert('Usuario creado!');
+export const signUp = async (email, password) => {
+  try {
+    const credentialsUser = await createUserWithEmailAndPassword(auth, email, password)
+    const user = credentialsUser.user;
+    await set(ref(database, `users/${user.uid}`), {
+      email,
+      password,
     })
-    .catch((error) => {
-      // const errorCode = error.code;
-      const errorMessage = error.message;
-      // ..
-      alert(errorMessage);
-    });
+    // swal('Usuario en la base de datos!');
+    console.log("los credenciales son:", credentialsUser)
+    // retorno un objeto con el valor true en resultado
+    return { resultado: true, code: "" };
+  } catch (error) {
+    // retorno un objeto con el valor false en resultado y un mensaje de error en code
+    return { resultado: false, code: error.code };
+  }
 };
