@@ -5,10 +5,14 @@ import Firebase from "../firebaseConfig.js";
 const { 
   db, auth, addDoc, getDocs, doc, collection, deleteDoc, updateDoc, arrayRemove, arrayUnion,  
 } = Firebase;
-export const firebaseCrearPublicacion = async (texto)  =>  {
-  await addDoc(collection(db,"Publicaciones"),{publicacion:texto})
-  console.log("dato insertado")
-}
+export const firebaseCrearPublicacion = async (texto) => {
+  // insertando la publicacion en la coleccion Publicaciones con el documento publicacion
+  await addDoc(collection(db, "Publicaciones"), {
+    publicacion: texto,
+    email: auth.currentUser.email,
+  });
+  console.log("dato insertado");
+};
 
 export const firebaseLeerPublicacion = async () => {
 
