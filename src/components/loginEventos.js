@@ -6,8 +6,10 @@ export const loginEventos = (onNavigate) => {
   document.getElementById('inputEmail').addEventListener('keyup', function() {
     if (document.getElementById('inputEmail').value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
       document.getElementById('botonInicio').style['pointer-events'] = "all";
+      document.getElementById('textoCorreoInvalido').style.visibility = 'hidden'
     } else {
       document.getElementById('botonInicio').style['pointer-events'] = "none"
+      document.getElementById('textoCorreoInvalido').style.visibility = 'visible'
     }
   });
   document.getElementById('botonRegistrar').addEventListener('click', () => onNavigate('/registro'));
@@ -15,20 +17,17 @@ export const loginEventos = (onNavigate) => {
     const estaLogueado = await registerGoogle();
     if(estaLogueado){
       onNavigate('/timeline')
-    }else{
-      alert('Error en login con google')
-    }
-    
-  
+    }  
   });
   document.getElementById('botonInicio').addEventListener('click', async () => {
-    // signIn();
+    const email = document.getElementById('inputEmail').value;
+    const password = document.getElementById('inputPassword').value;
     // segun el retorno de signIn en caso true ira a timeline sino mostrara mensaje de error
-    const estaLogueado = await signIn();
+    const estaLogueado = await signIn(email,password);
     if(estaLogueado){
       onNavigate('/timeline')
     }else{
-      alert('Error correo o contraseña incorrectos verifiquelos por favor')
+      swal('Error correo o contraseña incorrectos verifiquelos por favor')
     }
   });
 };

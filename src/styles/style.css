@@ -57,7 +57,7 @@ body {
   color: white;
   border: 0px;
   height: 25px;
-  pointer-events: none;
+  pointer-events: none
 }
 
 .cajaInicio>input{
@@ -72,10 +72,22 @@ body {
   font-size: 10px;
 }
 
-/* css de publicacion */
+.textoCorreoInvalido {
+  visibility: hidden;
+  font-size: 10px;
+  color: #D80000;
+  margin-top: -15px;
+  margin-bottom: -12px;
+}
 
-#publicacion{
-  height: 100%;
+
+/* css de publicacion */
+.mainPublicacion{
+  padding: 10px 40px;
+  background-attachment: fixed;
+}
+
+#publicacion, #pantallaMostrada{
   background-color: #FCF8E8;
 }
 
@@ -101,9 +113,6 @@ body {
   font-size: 15px;
   color: rgb(75, 75, 75);
 }
-.mainPublicacion{
-  padding: 10px 40px;
-}
 .botonPublicacion{
   background-color: #B73E3E;
   width: 100%;
@@ -121,7 +130,10 @@ body {
   padding: 20px;
   font-size: 20px;
   border-radius: 30px;
+  text-align:center;
+  font-family: 'Cabin', sans-serif;
 }
+
 /* estilos para crear publicacion */
 
 
@@ -135,4 +147,50 @@ body {
   resize: none;
   width: 100%;
 }
+.btns{
+  display: flex;
+  justify-content: space-around; 
+  padding-top: 40px;
+}
+.btn-eliminar, .botonEditar , .botonGuardar{
+  width: 90px;
+  height: 22px;
+  padding-top: 3px;
+  padding-left: 5px;
+  border-radius: 30px;
+  background-color: #DD5353;
+  text-align: center;
+}
 
+/* estilo para likes */
+.likes{
+  text-align: right;
+  padding-bottom: 30px;
+}
+
+.cabeceraPublicacion{
+  display: flex;
+  justify-content: space-between;
+}
+
+.cabeceraPublicacion > span{
+  font-style: italic;
+}
+
+
+/* para pantalla de tablet */
+@media (min-width: 600px){
+  .mainPublicacion{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+  }
+}
+/* para pantalla de escritorio */
+@media (min-width: 850px){
+  .mainPublicacion{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+  }
+}

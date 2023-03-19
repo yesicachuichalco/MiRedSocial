@@ -1,15 +1,16 @@
-import { GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js';
-import { auth } from './signUp.js';
+import Firebase from "../firebaseConfig.js";
+// pongo los nombres usuales de los objetos y funciones de firebase
+const { 
+  auth, GoogleAuthProvider, signInWithPopup,
+} = Firebase;
 
 export const registerGoogle = async () => {
   const provider = new GoogleAuthProvider();
 
   try {
     const credentials = await signInWithPopup(auth, provider);
-    console.log('Tus credenciales son:', credentials);
     return true;
   } catch (error) {
-    console.log(error);
     return false;
   }
 };

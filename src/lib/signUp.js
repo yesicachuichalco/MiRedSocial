@@ -1,14 +1,11 @@
-import FirebaseApp from '../firebaseConfig.js'
-import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js';
-import { getDatabase, set, ref } from 'https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js';
-
-export const auth = getAuth(FirebaseApp);
+// Importo la configuracion de firebase
+import Firebase from "../firebaseConfig.js";
+// pongo los nombres usuales de los objetos y funciones de firebase
+const { 
+  auth, createUserWithEmailAndPassword, set, ref, database,
+} = Firebase;
 export const signUp = () => {
   // Initialize Firebase
-  const database = getDatabase(FirebaseApp);
-
-  const email = document.getElementById('inputEmail').value;
-  const password = document.getElementById('inputPassword').value;
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
