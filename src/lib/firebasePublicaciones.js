@@ -19,12 +19,19 @@ export const firebaseLeerPublicacion = async () => {
   // con el await decimos que esperemos que termine la funcion getDocs antes de continuar
   const querySnapshot = await getDocs(collection(db,"Publicaciones"))
   let HtmlString = ""
-  querySnapshot.forEach(function(doc){  
-    HtmlString += `
-    <article class="miPublicacion">
-      <p>${doc.data().publicacion}</p>
-    </article>
-  `
+  querySnapshot.forEach(function(document){  
+    HtmlString += ` 
+      <article class='miPublicacion'>
+        <div class="cabeceraPublicacion">
+          <span>${document.data().email}</span>          
+        </div>      
+        <p contenteditable="false" id=${document.id}>${document.data().publicacion}</p>
+        ${document.data().email === auth.currentUser.email ? `<section class='btns'> 
+        <button class='btn-eliminar' data-id="${document.id}">ELIMINAR</button>
+        <button id="botonEditar${document.id}" class='botonEditar' data-id="${document.id}">EDITAR</button>
+        </section>` : ''}     
+      </article>
+    `;
   })
   return HtmlString;
 }
