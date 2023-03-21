@@ -35,3 +35,5 @@ export const firebaseLeerPublicacion = async () => {
   })
   return HtmlString;
 }
+
+export const deletePub = async (id) => deleteDoc(await doc(db, "Publicaciones", id));
