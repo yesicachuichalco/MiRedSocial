@@ -19,10 +19,12 @@
     "test": "jest --coverage",
     "dev": "vite dev src",
     "start": "npm run dev",
-    "build": "vite build",
+    "build": "vite build && npm run trasladar-imagenes",
+    "trasladar-imagenes": "copyfiles -f ./src/img/**/* ./dist/img",
     "preview": "vite preview"
   },
   "devDependencies": {
+    "copyfiles": "^2.4.1",
     "@babel/preset-env": "^7.19.4",
     "eslint": "^8.3.0",
     "eslint-config-airbnb-base": "^15.0.0",
